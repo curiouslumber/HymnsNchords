@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "5698917386",
+    "firebase_url": "https://hymnsnchords.firebaseio.com",
+    "project_id": "hymnsnchords",
+    "storage_bucket": "hymnsnchords.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5698917386:android:14f86b51a1d5664fb77bf3",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5698917386-lts81875rgl7chlim1lg5aoooe9aun8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAekMjITtlRdQj2VvY2XfWhJta-JgCbOxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5698917386-lts81875rgl7chlim1lg5aoooe9aun8s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "5698917386-rft8m4o933sn1vh2l8qlnr85hocofd79.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.android.application"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
