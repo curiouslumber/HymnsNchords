@@ -1,13 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:here/allchords.dart';
 import 'package:here/notes.dart';
 import 'tuner.dart';
 import 'home.dart';
-
-final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-final GoogleSignIn googleSignIn = GoogleSignIn();
 
 class SideBar extends StatelessWidget {
   @override
@@ -151,8 +146,7 @@ class SideBar extends StatelessWidget {
                                                 color: Colors.white),
                                           ),
                                           MaterialButton(
-                                            onPressed: () =>
-                                                {_signInWithGoogle()},
+                                            onPressed: () => {},
                                           )
                                         ],
                                       ),
@@ -339,17 +333,5 @@ class SideBar extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  _signInWithGoogle() async {
-    final GoogleSignInAccount googleUser = await googleSignIn.signIn();
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
-
-    final AuthCredential credential = GoogleAuthProvider.credential(
-        idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
-
-    final User user =
-        (await firebaseAuth.signInWithCredential(credential)).user;
   }
 }

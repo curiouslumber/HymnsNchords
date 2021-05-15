@@ -7,7 +7,8 @@ class TransposeController extends GetxController {
   var transposeIndex = 0;
   String fixedChords = "";
 
-  var allScales = List.generate(12, (i) => List(12), growable: false);
+  var allScales = List.generate(12, (i) => [], growable: false);
+  //var allScales = List.generate(12, (i) => List(12), growable: false);
 
   @override
   void onInit() {
