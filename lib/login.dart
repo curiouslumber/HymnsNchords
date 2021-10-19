@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:here/home.dart';
 
 class Login extends StatelessWidget {
@@ -11,6 +10,9 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return MaterialApp(
       home: SafeArea(
         top: true,
@@ -23,173 +25,78 @@ class Login extends StatelessWidget {
             shadowColor: Colors.black,
           ),
           body: Container(
-            child: Column(
+            child: Stack(
               children: [
-                Expanded(
-                  flex: 6,
-                  child: Container(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            child: FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                '''Welcome to 
-HymnsNChords App!''',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 28,
-                                    fontFamily: 'ComicSans',
-                                    color: Colors.white),
-                              ),
+                Container(
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Container(
+                        height: screenHeight / 6,
+                        width: screenWidth / 1.3,
+                        child: Text(
+                          "Welcome to the \nHymns and Chords App",
+                          maxLines: 2,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: screenWidth / 15,
+                          ),
+                        ),
+                        // color: Colors.pink,
+                      ),
+                      Container(
+                        height: screenHeight / 5,
+                        // color: Colors.yellow,
+                        alignment: Alignment.topLeft,
+                        padding: EdgeInsets.only(
+                            left: screenWidth / 10, right: screenWidth / 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Username",
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.white),
                             ),
-                          ),
+                            TextFormField(
+                              cursorColor: Colors.white,
+                              style: TextStyle(color: Colors.white),
+                              decoration:
+                                  InputDecoration(fillColor: Colors.white),
+                            )
+                          ],
                         ),
-                        Spacer(
-                          flex: 1,
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(40.0, 0, 40.0, 0),
-                            child: Stack(
-                              alignment: Alignment.bottomLeft,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    //  color: Colors.blue,
-                                    border: Border.all(
-                                        width: 1.0, color: Colors.white),
-                                  ),
-                                ),
-                                Container(
-                                  margin:
-                                      EdgeInsets.only(bottom: 8.0, left: 8.0),
-                                  child: Text(
-                                    'username',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Spacer(
-                          flex: 1,
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(40.0, 0, 40.0, 0),
-                            child: Stack(
-                              alignment: Alignment.bottomLeft,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    //  color: Colors.blue,
-                                    border: Border.all(
-                                        width: 1.0, color: Colors.white),
-                                  ),
-                                ),
-                                Container(
-                                  margin:
-                                      EdgeInsets.only(bottom: 8.0, left: 8.0),
-                                  child: Text(
-                                    'password',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 8.0),
-                          child: Text(
-                            'forgot your password?',
-                            style: TextStyle(color: Colors.white70),
-                          ),
-                        ),
-                        Spacer(
-                          flex: 1,
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Container(
-                                width: 100.0,
-                                decoration: BoxDecoration(
-                                    //     color: Colors.blue,
-                                    border: Border.all(
-                                        color: Colors.white, width: 1.0)),
-                              ),
-                              Container(
-                                child: Text(
-                                  'Login',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
-                                      fontSize: 18.0),
-                                ),
-                              ),
-                              MaterialButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                        builder: (context) => HomePage()),
-                                  );
-                                },
-                                color: Colors.green,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    alignment: Alignment.center,
-                    //  color: Colors.green,
+                      )
+                    ],
                   ),
-                ),
-                Spacer(
-                  flex: 2,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(40.0, 0, 40.0, 16.0),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            //  color: Colors.blue,
-                            border: Border.all(width: 1.0, color: Colors.white),
-                          ),
-                        ),
-                        Container(
-                          child: Text(
-                            'Not a user yet? Register here',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                  // color: Colors.green,
+                )
+                //   Positioned(
+                //     top: screenHeight / 50,
+                //     left: screenWidth / 6,
+                //     child: Text(
+                //       "Welcome to the \nHymns and Chords App",
+                //       maxLines: 2,
+                //       textAlign: TextAlign.center,
+                //       style: TextStyle(
+                //         color: Colors.white,
+                //         fontSize: screenWidth / 15,
+                //       ),
+                //     ),
+                //   ),
+                //   Positioned(
+                //     top: screenHeight / 5,
+                //     left: screenWidth / 6,
+                //     child: Column(
+                //       children: [
+                //         Text(
+                //           'Username:',
+                //           style: TextStyle(color: Colors.white),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
               ],
             ),
             decoration: BoxDecoration(
