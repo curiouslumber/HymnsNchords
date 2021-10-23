@@ -17,6 +17,7 @@ class Login extends StatelessWidget {
       home: SafeArea(
         top: true,
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           primary: true,
           appBar: AppBar(
             backgroundColor: appbarColor,
@@ -62,41 +63,59 @@ class Login extends StatelessWidget {
                             TextFormField(
                               cursorColor: Colors.white,
                               style: TextStyle(color: Colors.white),
-                              decoration:
-                                  InputDecoration(fillColor: Colors.white),
+                              decoration: InputDecoration(
+                                  fillColor: Colors.white,
+                                  focusedBorder: UnderlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Colors.white70))),
                             )
                           ],
+                        ),
+                      ),
+                      Container(
+                        height: screenHeight / 5,
+                        // color: Colors.yellow,
+                        alignment: Alignment.topLeft,
+                        padding: EdgeInsets.only(
+                            left: screenWidth / 10, right: screenWidth / 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Password",
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.white),
+                            ),
+                            TextFormField(
+                              cursorColor: Colors.white,
+                              style: TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                  fillColor: Colors.white,
+                                  focusedBorder: UnderlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Colors.white70))),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: screenHeight / 10,
+                        alignment: Alignment.center,
+                        child: MaterialButton(
+                          color: Colors.white,
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage()),
+                            );
+                          },
+                          child: Text('Sign In'),
                         ),
                       )
                     ],
                   ),
                   // color: Colors.green,
-                )
-                //   Positioned(
-                //     top: screenHeight / 50,
-                //     left: screenWidth / 6,
-                //     child: Text(
-                //       "Welcome to the \nHymns and Chords App",
-                //       maxLines: 2,
-                //       textAlign: TextAlign.center,
-                //       style: TextStyle(
-                //         color: Colors.white,
-                //         fontSize: screenWidth / 15,
-                //       ),
-                //     ),
-                //   ),
-                //   Positioned(
-                //     top: screenHeight / 5,
-                //     left: screenWidth / 6,
-                //     child: Column(
-                //       children: [
-                //         Text(
-                //           'Username:',
-                //           style: TextStyle(color: Colors.white),
-                //         ),
-                //       ],
-                //     ),
-                //   ),
+                ),
               ],
             ),
             decoration: BoxDecoration(
